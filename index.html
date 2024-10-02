@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search - TheMoviezFlix & LuxMovies</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        .frame-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 600px;
+        }
+        iframe {
+            width: 48%;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Movie Search: TheMoviezFlix & LuxMovies</h1>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for movies or shows..." style="width: 400px; padding: 10px;">
+            <button onclick="searchMovies()" style="padding: 10px;">Search</button>
+        </div>
+
+        <!-- Two Frames for TheMoviezFlix and LuxMovies Results -->
+        <div class="frame-container">
+            <iframe id="theMoviezFlixFrame" src="" title="TheMoviezFlix Results"></iframe>
+            <iframe id="luxMoviesFrame" src="" title="LuxMovies Results"></iframe>
+        </div>
+    </div>
+
+    <script>
+        function searchMovies() {
+            const query = document.getElementById('searchInput').value;
+
+            if (query) {
+                // Generate search URLs
+                const theMoviezFlixSearchUrl = `https://themoviezflix.se.net/category/dual-audio/?s=${encodeURIComponent(query)}`;
+                const luxMoviesSearchUrl = `https://luxmovies.co.in/?s=${encodeURIComponent(query)}`;
+
+                // Update the iframe sources
+                document.getElementById('theMoviezFlixFrame').src = theMoviezFlixSearchUrl;
+                document.getElementById('luxMoviesFrame').src = luxMoviesSearchUrl;
+            } else {
+                alert('Please enter a search term.');
+            }
+        }
+    </script>
+
+</body>
+</html>
