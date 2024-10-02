@@ -46,6 +46,7 @@
         <div class="frame-container">
             <iframe id="theMoviezFlixFrame" src="" title="TheMoviezFlix Results"></iframe>
             <iframe id="luxMoviesFrame" src="" title="LuxMovies Results"></iframe>
+            <iframe id="thefilmyfly" src="" title="Thefilmyfly Results"></iframe>
         </div>
     </div>
 
@@ -57,10 +58,12 @@
                 // Generate search URLs
                 const theMoviezFlixSearchUrl = `https://themoviezflix.se.net/category/dual-audio/?s=${encodeURIComponent(query)}`;
                 const luxMoviesSearchUrl = `https://luxmovies.co.in/?s=${encodeURIComponent(query)}`;
+                const filmyflySearchUrl = `https://filmyfly.wales/site-1.html?to-search=${encodeURIComponent(query)}`;
 
                 // Update the iframe sources
                 document.getElementById('theMoviezFlixFrame').src = theMoviezFlixSearchUrl;
                 document.getElementById('luxMoviesFrame').src = luxMoviesSearchUrl;
+                document.getElementById('thefilmyfly').src = filmyflySearchUrl;
             } else {
                 alert('Please enter a search term.');
             }
